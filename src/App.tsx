@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+ import {app, auth, googleProvider,signInWithPopup, signOut, GoogleAuthProvider} from './utils/firebase'
+ import  {useAppDispatch, useAppSelector} from './store/hooks'
+ import {userActions, loginUser}from './store/slices/userDataSlice'
 
 function App() {
+  const dispatch = useAppDispatch();
+  const appSelector = useAppSelector(store => store.userData);
+  const act = userActions;
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +25,16 @@ function App() {
         >
           Learn React
         </a>
+        <button  onClick={ async ()=> {
+          dispatch(loginUser());
+          // const res = await signInWithPopup(auth, googleProvider)
+          // const credential = GoogleAuthProvider.credentialFromResult(res);
+          // const token = credential?.accessToken;
+    // The signed-in user info.
+        //const user = res.user;
+        }}>
+          sign in
+        </button>
       </header>
     </div>
   );
