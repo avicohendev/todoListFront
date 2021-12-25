@@ -1,6 +1,8 @@
 import { createApi ,fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { listNames } from '../../types/listTypes';
 //import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import {RootState} from '../store'
+
 // Define a service using a base URL and expected endpoints
 export const listApi = createApi({
     reducerPath: 'listApi',
@@ -16,7 +18,7 @@ export const listApi = createApi({
       }, }, ),
     
     endpoints: (builder) => ({
-      getListsOfUser: builder.query<any, string>({
+      getListsOfUser: builder.query<listNames[], string>({
         query: (name) => `names/${name}`,
       }),
     }),

@@ -28,10 +28,14 @@ export const loginUser = createAsyncThunk('login', async () =>{
     const token = credential?.accessToken;
     // The signed-in user info.
     const user = res.user;
+    const tok = await user.getIdToken();
+    const tok2 = await user.getIdTokenResult();
+    const oldToken = credential?.idToken;
     const loggedInUser : userType={
-        idToken : credential?.idToken,
+        idToken : tok2.token,
         accessToken: credential?.accessToken,
         
+
         user :{
             displayName : user.displayName!,
             email: user.email!,
