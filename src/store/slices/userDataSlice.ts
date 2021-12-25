@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {User} from 'firebase/auth';
-import {app, auth, googleProvider,signInWithPopup, signOut, GoogleAuthProvider} from '../../utils/firebase'
+import {app, auth, googleProvider,signInWithPopup, signOut, GoogleAuthProvider,  signInWithRedirect} from '../../utils/firebase'
 
 type userType = {
     user? : userParams ,

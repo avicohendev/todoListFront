@@ -1,6 +1,6 @@
 
   import { initializeApp } from "firebase/app";
-  import { getAuth , GoogleAuthProvider, signInWithPopup, signOut} from "firebase/auth";
+  import { getAuth , GoogleAuthProvider, signInWithPopup, signOut, signInWithRedirect} from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyD9v-UdgV400TxqP7kIFFXkcCrV3p0fiEs",
     authDomain: "myshoppinglist-5011a.firebaseapp.com",
@@ -18,5 +18,5 @@ const firebaseConfig = {
  const auth =getAuth();
  const googleProvider =new GoogleAuthProvider();
 export{
-    app, auth, googleProvider, signInWithPopup, signOut , GoogleAuthProvider
+    app, auth, googleProvider, signInWithPopup, signOut , GoogleAuthProvider, signInWithRedirect
 }
